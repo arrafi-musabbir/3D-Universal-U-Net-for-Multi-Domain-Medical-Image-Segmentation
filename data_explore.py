@@ -15,7 +15,7 @@ import config
 
 parser = argparse.ArgumentParser(description='msd')
 parser.add_argument('--task', type=str, default='meta') # meta, extract meta info; 
-parser.add_argument('--root', type=str, default='/Users/messi/Documents/PythonProjects', help='path to save msd_meta.csv')
+parser.add_argument('--root', type=str, default='./', help='path to save msd_meta.csv')
 args = parser.parse_args()
 
 if args.task == 'meta':
