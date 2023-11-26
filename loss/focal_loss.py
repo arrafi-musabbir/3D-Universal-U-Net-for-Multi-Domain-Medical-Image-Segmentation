@@ -79,7 +79,7 @@ class FocalLoss(nn.Module):
             for c in class_to_sum:
                 fg = (target == c).float() # foreground for class c
                 class_pred = logpt[:,c]
-                if (classes is 'present' and fg.sum() == 0):
+                if (classes == 'present' and fg.sum() == 0):
                     continue
                 logpt = torch.dot(class_pred, fg)
                 if self.alpha is not None:

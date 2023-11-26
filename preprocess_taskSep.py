@@ -25,7 +25,8 @@ if __name__ == '__main__':
     ################################################################
     ### resample and crop et al.
     # tasks = sorted([x for x in os.listdir(config.base_dir) if x.startswith('Task')])
-    tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen'] # 
+    # tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen'] # 
+    tasks = ['Task02_Heart', 'Task04_Hippocampus', 'Task05_Prostate', 'Task09_Spleen'] # 
     for task in tqdm(tasks):
         # task = 'Task04_Hippocampus'
         print(task)
@@ -74,7 +75,7 @@ if __name__ == '__main__':
         ## fuse 'cancer' to Liver for Task03_Liver or to Pancreas for Task07_Pancreas
         ## the original .npy data is copied to xxx_with_cancer_as_2
         # tasks = sorted([x for x in os.listdir(config.base_dir) if x.startswith('Task')])
-        fuseCa = True
+        fuseCa = False
         if fuseCa:
             print('Fusing cancer to organ...')
             tasks = ['Task03_Liver', 'Task07_Pancreas']

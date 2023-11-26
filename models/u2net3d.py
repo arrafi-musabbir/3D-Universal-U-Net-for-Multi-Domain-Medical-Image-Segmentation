@@ -106,7 +106,6 @@ class conv_unit(nn.Module):
 
     def forward(self, x):
         task_idx = config.task_idx
-        # import ipdb; ipdb.set_trace()
         if self.stride != 1:
             out = self.conv(x)
             out = self.op[task_idx](out)
@@ -178,6 +177,7 @@ class DownBlock(nn.Module):
         self.act2 = norm_act(outChans, only="act")
 
     def forward(self, x):
+        
         if config.module == 'parallel_adapter' or config.module == 'separable_adapter':
             out, share_map, para_map = self.op1(x)
         else:
@@ -390,3 +390,6 @@ class u2net3d(nn.Module):
             return out, share_map, para_map
         else:
             return out
+        
+if __name__=='main':
+    print("here")

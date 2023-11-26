@@ -10,9 +10,9 @@ from ccToolkits.MySummaryWriter import MySummaryWriter
 writer = None 
 
 ### data path
-prepData_dir = ['../prepData/']
-base_dir = ['../dataset/']
-out_dir = "../results"
+prepData_dir = os.path.join(os.getcwd(),"prepData")
+base_dir = os.path.join(os.getcwd(),"dataset")
+out_dir = os.path.join(os.getcwd(),"results")
 
 # placeholders for debugging or universal model
 eval_out_dir = None
@@ -87,7 +87,8 @@ rotate_probs = {'Task02_Heart':0.3, 'Task03_Liver':0.3, 'Task04_Hippocampus':0.3
 mirror_probs = {'Task02_Heart':0.3, 'Task03_Liver':0.3, 'Task04_Hippocampus':0.3, 'Task05_Prostate':0.3, 'Task07_Pancreas':0.3, 'Task09_Spleen':0.3}
 
 ### set config for each task
-tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen']
+# tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen']
+tasks = ['Task02_Heart', 'Task04_Hippocampus', 'Task05_Prostate', 'Task09_Spleen'] # 
 task = "Task04_Hippocampus" # placeholder. for debugging
 
 config_tasks = dict() # placeholder
@@ -110,6 +111,7 @@ class set_config_task(object):
                 self.labels = task_info['labels']
                 print('{} labels:{}'.format(task, str(self.labels.keys())))
                 self.num_class = len(self.labels)
+                # pass
             else:
                 self.labels = task_info['labels'] # no init
                 self.num_class = len(self.labels) # len(task_info['labels'])

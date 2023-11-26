@@ -27,7 +27,7 @@ from models import u2net3d
 parser = argparse.ArgumentParser(description='u2net')
 parser.add_argument('--tasks', default='Task02_Heart', nargs='+', help='Task(s) to be trained') # e.g. python try1try.py --dataset 'a' 'b' 'c'
 parser.add_argument('--trainMode', default='independent', type=str, help='Task adaptation mode') # independent, shared, universal. shared: used to train a unet3d model w/o adapters for all tasks
-parser.add_argument('--module', default='adapter', type=str, help='specific module type: series_adapter, parallel_adapter, separable_adapter')
+parser.add_argument('--module', default='series_adapter', type=str, help='specific module type: series_adapter, parallel_adapter, separable_adapter')
 parser.add_argument('--ckp', default='', type=str, help='dir to load ckp for transfer learning')
 parser.add_argument('--resume_ckp', default='', type=str, help='dir to load ckp for evaluation or training')
 parser.add_argument('--resume_epoch', default=0, type=int, help='epoch of resume_ckp')
@@ -64,7 +64,7 @@ if args.out_tag:
     args.out_tag = '_' + args.out_tag
 
 #### Prepare datasets
-with open(os.path.join(os.path.dirname(os.getcwd()), 'fold_splits.json'), mode='r') as f:
+with open(os.path.join(os.getcwd(), 'fold_splits.json'), mode='r') as f:
     tasks_archive = json.load(f) # dict: {'Task02_Heart'/...}{'fold index'}{'train'/'val'}
 
 # seed
