@@ -201,7 +201,7 @@ def Upsample3D(scale_factor=(2,2,2)):
     '''
     # l = tf.keras.layers.UpSampling3D(size=up_strides, data_format=DATA_FORMAT)(l) # by tkuanlun350. # no equavalent in torch?
     # scale_factor can also be a tuple. so able to custom scale_factor for each dim.
-    upsample = nn.Upsample(scale_factor=scale_factor, mode='nearest') # ignore the warnings. Only module like upsample can be shown in my visualization. # if using ConvTranspose3d, be careful to how to pad when the down sample method used padding='SAME' strategy.
+    upsample = nn.Upsample(scale_factor=2, mode='nearest') # ignore the warnings. Only module like upsample can be shown in my visualization. # if using ConvTranspose3d, be careful to how to pad when the down sample method used padding='SAME' strategy.
     return upsample
 
 class UnetUpsample(nn.Module):
