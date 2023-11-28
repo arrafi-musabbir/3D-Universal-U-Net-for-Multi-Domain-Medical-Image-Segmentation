@@ -28,7 +28,7 @@ Brief instructions to apply the code:
 To accelerate training, the authors built a fast tool to do online image augmentation with CUDA on GPU(especially for elastic deformation). [**cuda_spatial_defrom**](https://github.com/qsyao/cuda_spatial_deform).
 
 ## Citation
-If you use this code, please cite our paper as:
+If you use this code, please cite their paper as:
 
     Huang C., Han H., Yao Q., Zhu S., Zhou S.K. (2019) 3D U 2-Net: A 3D Universal U-Net for Multi-domain Medical Image Segmentation. In: Shen D. et al. (eds) Medical Image Computing and Computer Assisted Intervention – MICCAI 2019. MICCAI 2019. Lecture Notes in Computer Science, vol 11765. Springer, Cham
 
