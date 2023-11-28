@@ -10,18 +10,20 @@ Brief instructions to apply the code:
 2. Clone the repository by:
 
    ` git clone https://github.com/arrafi-musabbir/unet_3D_multi_domain_medical_image.git `
-  
-3. first, install all the necessary requirements 
+3. Create a virtual env with `venv`
+   ` python -m venv venv`
+   
+4. first, install all the necessary requirements 
 
    ` pip install -r requirements.txt `
-4. Download the datasets from [Medical Segmentation Decathlon](http://medicaldecathlon.com/)
-5. Please put the downloaded files in the `dataset` directory
-6. scripts in `u2net_torch_src` are utilized as below:
+5. Download the datasets from [Medical Segmentation Decathlon](http://medicaldecathlon.com/)
+6. Please put the downloaded files in the `dataset` directory
+7. scripts in `u2net_torch_src` are utilized as below:
     * `data_explore.py` is to explore the characteristics of the images, e.g. pixel spacings.
     *  `preprocess_taskSep.py` is used to do offline preprocessing (e.g. cropping, resampling) of the data samples to save time for training.
     * `train_model_no_adapters.py` is the main file to train the independent models as well as the shared model. 
     * `train_model_wt_adapters.py` is the main file to train the proposed universal model with separable convolution.
-7. Terminal commands to train all models are presented in `train_models.sh`.
+8. Terminal commands to train all models are presented in `train_models.sh`.
 
 To accelerate training, the authors built a fast tool to do online image augmentation with CUDA on GPU(especially for elastic deformation). [**cuda_spatial_defrom**](https://github.com/qsyao/cuda_spatial_deform).
 
