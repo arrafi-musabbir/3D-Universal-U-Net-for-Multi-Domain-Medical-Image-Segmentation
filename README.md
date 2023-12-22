@@ -40,11 +40,17 @@ Brief instructions to apply the code:
                                   [--resume_ckp RESUME_CKP] [--resume_epoch RESUME_EPOCH] [--fold FOLD] [--model MODEL] [--out_tag OUT_TAG]
                                   [--base_outChans BASE_OUTCHANS] [--predict]
    ```
+   ```
+   !python train_model_no_adapters.py --module series_adapter --tasks Task02_Heart Task04_Hippocampus
+   ```
     * `train_model_wt_adapters.py` is the main file to train the proposed universal model with separable convolution.
    ```
    usage: train_model_wt_adapters.py [-h] [--tasks TASKS [TASKS ...]] [--trainMode TRAINMODE] [--module MODULE] [--ckp CKP]
                                   [--resume_ckp RESUME_CKP] [--resume_epoch RESUME_EPOCH] [--fold FOLD] [--model MODEL] [--out_tag OUT_TAG]
                                   [--base_outChans BASE_OUTCHANS] [--predict PREDICT] [--pred_epoch PRED_EPOCH]
+   ```
+   ```
+   !python train_model_wt_adapters.py --module parallel_adapter --tasks Task02_Heart Task04_Hippocampus
    ```
 10. Terminal commands to train all models are presented in `train_models.sh`.
 
