@@ -22,8 +22,8 @@ import utils
 tinies.sureDir(config.prepData_dir)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--nProc', type=int, default=8, help='process workers to create')
-    parser.add_argument('--tasks', default='Task02_Heart', nargs='+', help='Task(s) to be preprocessed')
+    parser.add_argument('--nProc', type=int, default=os.cpu_count(), help='process workers to create')
+    parser.add_argument('--tasks', default=['Task02_Heart'], nargs='+', help='Task(s) to be preprocessed')
     args = parser.parse_args()
     # print(args.tasks)
     ###############################################################
@@ -31,9 +31,11 @@ if __name__ == '__main__':
     # tasks = sorted([x for x in os.listdir(config.base_dir) if x.startswith('Task')])
     # tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen'] # 
     tasks = args.tasks # 
+    print("core count: {}".format(args.nProc))
+    # print(tasks)
     for task in tqdm(tasks):
         # task = 'Task04_Hippocampus'
-        print(task)
+        print("Current Task: {}".format(task))
         # task_archive = tasks_archive[task]
         config_task = config.set_config_task('independent', task, config.base_dir)
 

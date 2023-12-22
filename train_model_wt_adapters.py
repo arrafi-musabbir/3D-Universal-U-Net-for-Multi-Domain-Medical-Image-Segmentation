@@ -28,7 +28,7 @@ from models import u2net3d
 parser = argparse.ArgumentParser(description='u2net')
 parser.add_argument('--tasks', default='Task02_Heart', nargs='+', help='Task(s) to be trained') # e.g. python try1try.py --dataset 'a' 'b' 'c'
 parser.add_argument('--trainMode', default='universal', type=str, help='Task adaptation mode') # independent, shared, universal. shared: used to train a unet3d model w/o adapters for all tasks
-parser.add_argument('--module', default='series_adapter', type=str, help='specific module type: series_adapter, parallel_adapter, separable_adapter')
+parser.add_argument('--module', default='parallel_adapter', type=str, help='specific module type: series_adapter, parallel_adapter, separable_adapter')
 parser.add_argument('--ckp', default='', type=str, help='dir to load ckp for transfer learning')
 parser.add_argument('--resume_ckp', default='', type=str, help='dir to load ckp for evaluation or training')
 parser.add_argument('--resume_epoch', default=0, type=int, help='epoch of resume_ckp')

@@ -89,7 +89,7 @@ mirror_probs = {'Task02_Heart':0.3, 'Task03_Liver':0.3, 'Task04_Hippocampus':0.3
 ### set config for each task
 # tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen']
 tasks = ['Task02_Heart', 'Task04_Hippocampus', 'Task05_Prostate', 'Task09_Spleen'] # 
-task = "Task04_Hippocampus" # placeholder. for debugging
+# task = "Task04_Hippocampus" # placeholder. for debugging
 
 config_tasks = dict() # placeholder
 class set_config_task(object):
