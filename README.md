@@ -27,13 +27,25 @@ Brief instructions to apply the code:
    !python data_explore.py
    ```
     *  `preprocess_taskSep.py` is used to do offline preprocessing (e.g. cropping, resampling) of the data samples to save time for training.
-
+   ```
+   usage: preprocess_taskSep.py [-h] [--nProc NPROC] [--tasks TASKS [TASKS ...]]
+   ```
    ```
    !python preprocess_taskSep.py  --tasks Task02_Heart Task04_Hippocampus
    ```
 
-    * `train_model_no_adapters.py` is the main file to train the independent models as well as the shared model. 
+    * `train_model_no_adapters.py` is the main file to train the independent models as well as the shared model.
+   ```
+   usage: train_model_no_adapters.py [-h] [--tasks TASKS [TASKS ...]] [--trainMode TRAINMODE] [--module MODULE] [--ckp CKP]
+                                  [--resume_ckp RESUME_CKP] [--resume_epoch RESUME_EPOCH] [--fold FOLD] [--model MODEL] [--out_tag OUT_TAG]
+                                  [--base_outChans BASE_OUTCHANS] [--predict]
+   ```
     * `train_model_wt_adapters.py` is the main file to train the proposed universal model with separable convolution.
+   ```
+   usage: train_model_wt_adapters.py [-h] [--tasks TASKS [TASKS ...]] [--trainMode TRAINMODE] [--module MODULE] [--ckp CKP]
+                                  [--resume_ckp RESUME_CKP] [--resume_epoch RESUME_EPOCH] [--fold FOLD] [--model MODEL] [--out_tag OUT_TAG]
+                                  [--base_outChans BASE_OUTCHANS] [--predict PREDICT] [--pred_epoch PRED_EPOCH]
+   ```
 10. Terminal commands to train all models are presented in `train_models.sh`.
 
 To accelerate training, the authors built a fast tool to do online image augmentation with CUDA on GPU(especially for elastic deformation). [**cuda_spatial_defrom**](https://github.com/qsyao/cuda_spatial_deform).
