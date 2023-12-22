@@ -9,21 +9,32 @@ Brief instructions to apply the code:
 1. My implementation uses `python3.10.12`
 2. Clone the repository by:
 
-   ` git clone https://github.com/arrafi-musabbir/unet_3D_multi_domain_medical_image.git `
-3. Create a virtual env with `venv`
+   ` !git clone https://github.com/arrafi-musabbir/unet_3D_multi_domain_medical_image.git `
+3. Create a virtual env with `venv` (if you're running from local machine)
    
-   ` python -m venv venv`
+   ` !python -m venv venv`
 5. first, install all the necessary requirements 
 
-   ` pip install -r requirements.txt `
+   ` !pip install -r requirements.txt `
 6. Download the datasets from [Medical Segmentation Decathlon](http://medicaldecathlon.com/)
 7. Please put the downloaded files in the `dataset` directory
-8. scripts in `u2net_torch_src` are utilized as below:
+   ```
+   !tar -xf /content/drive/MyDrive/MSD/Task02_Heart.tar -C /content/3D-Universal-U-Net-for-Multi-Domain-Medical-Image-Segmentation/dataset
+   ```
+9. scripts in `u2net_torch_src` are utilized as below:
     * `data_explore.py` is to explore the characteristics of the images, e.g. pixel spacings.
+   ```
+   !python data_explore.py
+   ```
     *  `preprocess_taskSep.py` is used to do offline preprocessing (e.g. cropping, resampling) of the data samples to save time for training.
+
+   ```
+   !python preprocess_taskSep.py  --tasks Task02_Heart Task04_Hippocampus
+   ```
+
     * `train_model_no_adapters.py` is the main file to train the independent models as well as the shared model. 
     * `train_model_wt_adapters.py` is the main file to train the proposed universal model with separable convolution.
-9. Terminal commands to train all models are presented in `train_models.sh`.
+10. Terminal commands to train all models are presented in `train_models.sh`.
 
 To accelerate training, the authors built a fast tool to do online image augmentation with CUDA on GPU(especially for elastic deformation). [**cuda_spatial_defrom**](https://github.com/qsyao/cuda_spatial_deform).
 
