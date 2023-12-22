@@ -1,4 +1,7 @@
 #### @Chao Huang(huangchao09@zju.edu.cn).
+import warnings
+# To ignore all warnings
+warnings.filterwarnings("ignore")
 import os
 import time
 import argparse

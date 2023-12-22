@@ -1,7 +1,9 @@
 #### @Chao Huang(huangchao09@zju.edu.cn).
 # main file to train a universal model with the tasks in round robin fashion.
 # CUDA_VISIBLE_DEVICES=2 python train_model_wt_adapters.py --trainMode 'universal' --module 'separable_adapter' --out_tag '20190213' --tasks Task02_Heart' 'Task03_Liver' 'Task04_Hippocampus' 'Task05_Prostate' 'Task07_Pancreas'
-
+import warnings
+# To ignore all warnings
+warnings.filterwarnings("ignore")
 import os
 import time
 import argparse

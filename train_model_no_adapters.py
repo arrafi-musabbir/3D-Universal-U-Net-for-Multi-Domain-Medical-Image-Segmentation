@@ -2,7 +2,9 @@
 # main file to train an independent model or a shared model with the tasks in round robin fashion.
 # CUDA_VISIBLE_DEVICES=3 python train_model_no_adapters.py --trainMode 'independent' --out_tag '20190213' --tasks 'Task02_Heart'
 # CUDA_VISIBLE_DEVICES=2 python train_model_no_adapters.py --trainMode 'shared' --out_tag '20190213' --tasks Task02_Heart' 'Task03_Liver' 'Task04_Hippocampus' 'Task05_Prostate' 'Task07_Pancreas'
-
+import warnings
+# To ignore all warnings
+warnings.filterwarnings("ignore")
 import os
 import time
 import argparse
