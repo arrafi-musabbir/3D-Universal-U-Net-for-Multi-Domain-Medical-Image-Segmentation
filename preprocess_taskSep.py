@@ -20,13 +20,14 @@ tinies.sureDir(config.prepData_dir)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--nProc', type=int, default=8, help='process workers to create')
+    parser.add_argument('--tasks', default='Task02_Heart', nargs='+', help='Task(s) to be preprocessed')
     args = parser.parse_args()
-
-    ################################################################
-    ### resample and crop et al.
+    # print(args.tasks)
+    ###############################################################
+    ## resample and crop et al.
     # tasks = sorted([x for x in os.listdir(config.base_dir) if x.startswith('Task')])
     # tasks = ['Task02_Heart', 'Task03_Liver', 'Task04_Hippocampus', 'Task05_Prostate', 'Task07_Pancreas', 'Task09_Spleen'] # 
-    tasks = ['Task02_Heart', 'Task04_Hippocampus', 'Task05_Prostate', 'Task09_Spleen'] # 
+    tasks = args.tasks # 
     for task in tqdm(tasks):
         # task = 'Task04_Hippocampus'
         print(task)
